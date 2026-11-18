@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>JVMArch</key>
+		<string>arm64</string>
+		<key>JVMEnabled</key>
+		<true/>
+		<key>JVMHomePath</key>
+		<string>/Users/x/Library/Java/JavaVirtualMachines/ms-21.0.12.1/Contents/Home</string>
+		<key>JVMVendor</key>
+		<string>Microsoft</string>
+		<key>JVMVersion</key>
+		<string>21.0.12.1</string>
+	</dict>
+	<dict>
+		<key>JVMArch</key>
+		<string>arm64</string>
+		<key>JVMHomePath</key>
+		<string>/Users/x/Library/Java/JavaVirtualMachines/azul-1.8.0_492/Contents/Home</string>
+		<key>JVMVersion</key>
+		<string>1.8.0_492</string>
+	</dict>
+</array>
+</plist>

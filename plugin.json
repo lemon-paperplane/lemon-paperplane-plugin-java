@@ -1,0 +1,814 @@
+{
+  "id": "java",
+  "name": "%plugin.name%",
+  "version": "0.1.0",
+  "vendor": "Lemon Paperplane",
+  "description": "%plugin.description%",
+  "icon": "icons/java.svg",
+  "category": "language",
+  "engines": {
+    "paperplane": ">=0.1.0 <0.2.0"
+  },
+  "protocol": 1,
+  "executable": "bin/paperplane-plugin-java",
+  "activation": {
+    "files": [
+      "*.java",
+      "pom.xml",
+      "build.gradle",
+      "build.gradle.kts",
+      "settings.gradle",
+      "settings.gradle.kts",
+      "src/"
+    ],
+    "facets": [
+      "gradle",
+      "maven",
+      "kotlin"
+    ]
+  },
+  "contributes": {
+    "languages": [
+      {"id": "java", "name": "Java", "extensions": [".java", ".jav"], "module": "editor/lang-java.js", "lineComment": "//", "blockComment": ["/*", "*/"]}
+    ],
+    "facets": [
+      {
+        "id": "java",
+        "name": "Java",
+        "icon": "icons/java.svg",
+        "category": "language",
+        "priority": 50
+      }
+    ],
+    "toolchains": [
+      {
+        "kind": "jdk",
+        "name": "JDK",
+        "icon": "icons/java.svg",
+        "installable": true
+      }
+    ],
+    "runConfigurationTypes": [
+      {
+        "id": "java-application",
+        "name": "%runType.application%",
+        "icon": "icons/java.svg",
+        "facets": [
+          "java"
+        ],
+        "options": [
+          {
+            "key": "mainClass",
+            "title": "%opt.mainClass%",
+            "type": "string",
+            "required": true,
+            "placeholder": "com.example.Main"
+          },
+          {
+            "key": "module",
+            "title": "%opt.module%",
+            "type": "select",
+            "optionsFrom": "jvm.modules",
+            "info": "%opt.module.info%"
+          },
+          {
+            "key": "vmOptions",
+            "title": "%opt.vmOptions%",
+            "type": "string",
+            "placeholder": "-Xmx1g"
+          },
+          {
+            "key": "programArgs",
+            "title": "%opt.programArgs%",
+            "type": "string"
+          },
+          {
+            "key": "workingDir",
+            "title": "%opt.workingDir%",
+            "type": "path",
+            "info": "%opt.workingDir.info%",
+            "advanced": true
+          }
+        ]
+      }
+    ],
+    "services": [
+      "buildCommand"
+    ],
+    "ideRunConfigTypes": [
+      "Application"
+    ],
+    "diagnostics": [
+      {
+        "id": "java.class-version-52",
+        "hint": "class file version 52.",
+        "pattern": "class file version (52)\\.\\d+\\), this version of the Java Runtime only recognizes class file versions up to (\\d+)",
+        "severity": "error",
+        "title": "%diag.classVersion.title%",
+        "message": "%diag.classVersion.message%",
+        "fixes": [
+          {
+            "id": "useJdk",
+            "title": "%fix.useNewerJdk%",
+            "kind": "setToolchain",
+            "params": {
+              "kind": "jdk",
+              "constraint": ">=8"
+            },
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.class-version-53",
+        "hint": "class file version 53.",
+        "pattern": "class file version (53)\\.\\d+\\), this version of the Java Runtime only recognizes class file versions up to (\\d+)",
+        "severity": "error",
+        "title": "%diag.classVersion.title%",
+        "message": "%diag.classVersion.message%",
+        "fixes": [
+          {
+            "id": "useJdk",
+            "title": "%fix.useNewerJdk%",
+            "kind": "setToolchain",
+            "params": {
+              "kind": "jdk",
+              "constraint": ">=9"
+            },
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.class-version-54",
+        "hint": "class file version 54.",
+        "pattern": "class file version (54)\\.\\d+\\), this version of the Java Runtime only recognizes class file versions up to (\\d+)",
+        "severity": "error",
+        "title": "%diag.classVersion.title%",
+        "message": "%diag.classVersion.message%",
+        "fixes": [
+          {
+            "id": "useJdk",
+            "title": "%fix.useNewerJdk%",
+            "kind": "setToolchain",
+            "params": {
+              "kind": "jdk",
+              "constraint": ">=10"
+            },
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.class-version-55",
+        "hint": "class file version 55.",
+        "pattern": "class file version (55)\\.\\d+\\), this version of the Java Runtime only recognizes class file versions up to (\\d+)",
+        "severity": "error",
+        "title": "%diag.classVersion.title%",
+        "message": "%diag.classVersion.message%",
+        "fixes": [
+          {
+            "id": "useJdk",
+            "title": "%fix.useNewerJdk%",
+            "kind": "setToolchain",
+            "params": {
+              "kind": "jdk",
+              "constraint": ">=11"
+            },
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.class-version-56",
+        "hint": "class file version 56.",
+        "pattern": "class file version (56)\\.\\d+\\), this version of the Java Runtime only recognizes class file versions up to (\\d+)",
+        "severity": "error",
+        "title": "%diag.classVersion.title%",
+        "message": "%diag.classVersion.message%",
+        "fixes": [
+          {
+            "id": "useJdk",
+            "title": "%fix.useNewerJdk%",
+            "kind": "setToolchain",
+            "params": {
+              "kind": "jdk",
+              "constraint": ">=12"
+            },
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.class-version-57",
+        "hint": "class file version 57.",
+        "pattern": "class file version (57)\\.\\d+\\), this version of the Java Runtime only recognizes class file versions up to (\\d+)",
+        "severity": "error",
+        "title": "%diag.classVersion.title%",
+        "message": "%diag.classVersion.message%",
+        "fixes": [
+          {
+            "id": "useJdk",
+            "title": "%fix.useNewerJdk%",
+            "kind": "setToolchain",
+            "params": {
+              "kind": "jdk",
+              "constraint": ">=13"
+            },
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.class-version-58",
+        "hint": "class file version 58.",
+        "pattern": "class file version (58)\\.\\d+\\), this version of the Java Runtime only recognizes class file versions up to (\\d+)",
+        "severity": "error",
+        "title": "%diag.classVersion.title%",
+        "message": "%diag.classVersion.message%",
+        "fixes": [
+          {
+            "id": "useJdk",
+            "title": "%fix.useNewerJdk%",
+            "kind": "setToolchain",
+            "params": {
+              "kind": "jdk",
+              "constraint": ">=14"
+            },
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.class-version-59",
+        "hint": "class file version 59.",
+        "pattern": "class file version (59)\\.\\d+\\), this version of the Java Runtime only recognizes class file versions up to (\\d+)",
+        "severity": "error",
+        "title": "%diag.classVersion.title%",
+        "message": "%diag.classVersion.message%",
+        "fixes": [
+          {
+            "id": "useJdk",
+            "title": "%fix.useNewerJdk%",
+            "kind": "setToolchain",
+            "params": {
+              "kind": "jdk",
+              "constraint": ">=15"
+            },
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.class-version-60",
+        "hint": "class file version 60.",
+        "pattern": "class file version (60)\\.\\d+\\), this version of the Java Runtime only recognizes class file versions up to (\\d+)",
+        "severity": "error",
+        "title": "%diag.classVersion.title%",
+        "message": "%diag.classVersion.message%",
+        "fixes": [
+          {
+            "id": "useJdk",
+            "title": "%fix.useNewerJdk%",
+            "kind": "setToolchain",
+            "params": {
+              "kind": "jdk",
+              "constraint": ">=16"
+            },
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.class-version-61",
+        "hint": "class file version 61.",
+        "pattern": "class file version (61)\\.\\d+\\), this version of the Java Runtime only recognizes class file versions up to (\\d+)",
+        "severity": "error",
+        "title": "%diag.classVersion.title%",
+        "message": "%diag.classVersion.message%",
+        "fixes": [
+          {
+            "id": "useJdk",
+            "title": "%fix.useNewerJdk%",
+            "kind": "setToolchain",
+            "params": {
+              "kind": "jdk",
+              "constraint": ">=17"
+            },
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.class-version-62",
+        "hint": "class file version 62.",
+        "pattern": "class file version (62)\\.\\d+\\), this version of the Java Runtime only recognizes class file versions up to (\\d+)",
+        "severity": "error",
+        "title": "%diag.classVersion.title%",
+        "message": "%diag.classVersion.message%",
+        "fixes": [
+          {
+            "id": "useJdk",
+            "title": "%fix.useNewerJdk%",
+            "kind": "setToolchain",
+            "params": {
+              "kind": "jdk",
+              "constraint": ">=18"
+            },
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.class-version-63",
+        "hint": "class file version 63.",
+        "pattern": "class file version (63)\\.\\d+\\), this version of the Java Runtime only recognizes class file versions up to (\\d+)",
+        "severity": "error",
+        "title": "%diag.classVersion.title%",
+        "message": "%diag.classVersion.message%",
+        "fixes": [
+          {
+            "id": "useJdk",
+            "title": "%fix.useNewerJdk%",
+            "kind": "setToolchain",
+            "params": {
+              "kind": "jdk",
+              "constraint": ">=19"
+            },
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.class-version-64",
+        "hint": "class file version 64.",
+        "pattern": "class file version (64)\\.\\d+\\), this version of the Java Runtime only recognizes class file versions up to (\\d+)",
+        "severity": "error",
+        "title": "%diag.classVersion.title%",
+        "message": "%diag.classVersion.message%",
+        "fixes": [
+          {
+            "id": "useJdk",
+            "title": "%fix.useNewerJdk%",
+            "kind": "setToolchain",
+            "params": {
+              "kind": "jdk",
+              "constraint": ">=20"
+            },
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.class-version-65",
+        "hint": "class file version 65.",
+        "pattern": "class file version (65)\\.\\d+\\), this version of the Java Runtime only recognizes class file versions up to (\\d+)",
+        "severity": "error",
+        "title": "%diag.classVersion.title%",
+        "message": "%diag.classVersion.message%",
+        "fixes": [
+          {
+            "id": "useJdk",
+            "title": "%fix.useNewerJdk%",
+            "kind": "setToolchain",
+            "params": {
+              "kind": "jdk",
+              "constraint": ">=21"
+            },
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.class-version-66",
+        "hint": "class file version 66.",
+        "pattern": "class file version (66)\\.\\d+\\), this version of the Java Runtime only recognizes class file versions up to (\\d+)",
+        "severity": "error",
+        "title": "%diag.classVersion.title%",
+        "message": "%diag.classVersion.message%",
+        "fixes": [
+          {
+            "id": "useJdk",
+            "title": "%fix.useNewerJdk%",
+            "kind": "setToolchain",
+            "params": {
+              "kind": "jdk",
+              "constraint": ">=22"
+            },
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.class-version-67",
+        "hint": "class file version 67.",
+        "pattern": "class file version (67)\\.\\d+\\), this version of the Java Runtime only recognizes class file versions up to (\\d+)",
+        "severity": "error",
+        "title": "%diag.classVersion.title%",
+        "message": "%diag.classVersion.message%",
+        "fixes": [
+          {
+            "id": "useJdk",
+            "title": "%fix.useNewerJdk%",
+            "kind": "setToolchain",
+            "params": {
+              "kind": "jdk",
+              "constraint": ">=23"
+            },
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.class-version-68",
+        "hint": "class file version 68.",
+        "pattern": "class file version (68)\\.\\d+\\), this version of the Java Runtime only recognizes class file versions up to (\\d+)",
+        "severity": "error",
+        "title": "%diag.classVersion.title%",
+        "message": "%diag.classVersion.message%",
+        "fixes": [
+          {
+            "id": "useJdk",
+            "title": "%fix.useNewerJdk%",
+            "kind": "setToolchain",
+            "params": {
+              "kind": "jdk",
+              "constraint": ">=24"
+            },
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.class-version-69",
+        "hint": "class file version 69.",
+        "pattern": "class file version (69)\\.\\d+\\), this version of the Java Runtime only recognizes class file versions up to (\\d+)",
+        "severity": "error",
+        "title": "%diag.classVersion.title%",
+        "message": "%diag.classVersion.message%",
+        "fixes": [
+          {
+            "id": "useJdk",
+            "title": "%fix.useNewerJdk%",
+            "kind": "setToolchain",
+            "params": {
+              "kind": "jdk",
+              "constraint": ">=25"
+            },
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.class-version-70",
+        "hint": "class file version 70.",
+        "pattern": "class file version (70)\\.\\d+\\), this version of the Java Runtime only recognizes class file versions up to (\\d+)",
+        "severity": "error",
+        "title": "%diag.classVersion.title%",
+        "message": "%diag.classVersion.message%",
+        "fixes": [
+          {
+            "id": "useJdk",
+            "title": "%fix.useNewerJdk%",
+            "kind": "setToolchain",
+            "params": {
+              "kind": "jdk",
+              "constraint": ">=26"
+            },
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.invalid-release",
+        "hint": "release",
+        "pattern": "(?:invalid (?:source|target) release|release version)[:：]?\\s*(?:1\\.)?(\\d+)",
+        "severity": "error",
+        "title": "%diag.invalidRelease.title%",
+        "message": "%diag.invalidRelease.message%",
+        "fixes": [
+          {
+            "id": "useJdk",
+            "title": "%fix.useNewerJdk%",
+            "kind": "setToolchain",
+            "params": {
+              "kind": "jdk",
+              "constraint": ">={1}"
+            },
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.invalid-release-zh",
+        "hint": "发行版",
+        "pattern": "(?:无效的(?:源|目标)发行版|不支持发行版本)[:：]?\\s*(?:1\\.)?(\\d+)",
+        "severity": "error",
+        "title": "%diag.invalidRelease.title%",
+        "message": "%diag.invalidRelease.message%",
+        "fixes": [
+          {
+            "id": "useJdk",
+            "title": "%fix.useNewerJdk%",
+            "kind": "setToolchain",
+            "params": {
+              "kind": "jdk",
+              "constraint": ">={1}"
+            },
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.release-flag",
+        "hint": "--release",
+        "pattern": "(?:invalid flag|无效的标记): --release",
+        "severity": "error",
+        "title": "%diag.releaseFlag.title%",
+        "message": "%diag.releaseFlag.message%",
+        "fixes": [
+          {
+            "id": "useJdk",
+            "title": "%fix.useNewerJdk%",
+            "kind": "setToolchain",
+            "params": {
+              "kind": "jdk",
+              "constraint": ">=9"
+            },
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.old-source-5",
+        "hint": "option",
+        "pattern": "(?:Source|Target) option (?:1\\.)?5 is no longer supported",
+        "severity": "error",
+        "title": "%diag.oldSource.title%",
+        "message": "%diag.oldSource.message%",
+        "fixes": [
+          {
+            "id": "useJdk",
+            "title": "%fix.useOlderJdk%",
+            "kind": "setToolchain",
+            "params": {
+              "kind": "jdk",
+              "constraint": "8"
+            },
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.old-source-6",
+        "hint": "option",
+        "pattern": "(?:Source|Target) option (?:1\\.)?6 is no longer supported",
+        "severity": "error",
+        "title": "%diag.oldSource.title%",
+        "message": "%diag.oldSource.message%",
+        "fixes": [
+          {
+            "id": "useJdk",
+            "title": "%fix.useOlderJdk%",
+            "kind": "setToolchain",
+            "params": {
+              "kind": "jdk",
+              "constraint": "<=11"
+            },
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.old-source-7",
+        "hint": "option",
+        "pattern": "(?:Source|Target) option (?:1\\.)?7 is no longer supported",
+        "severity": "error",
+        "title": "%diag.oldSource.title%",
+        "message": "%diag.oldSource.message%",
+        "fixes": [
+          {
+            "id": "useJdk",
+            "title": "%fix.useOlderJdk%",
+            "kind": "setToolchain",
+            "params": {
+              "kind": "jdk",
+              "constraint": "<=19"
+            },
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.old-source-5-zh",
+        "hint": "不再支持",
+        "pattern": "不再支持(?:源|目标)选项 (?:1\\.)?5",
+        "severity": "error",
+        "title": "%diag.oldSource.title%",
+        "message": "%diag.oldSource.message%",
+        "fixes": [
+          {
+            "id": "useJdk",
+            "title": "%fix.useOlderJdk%",
+            "kind": "setToolchain",
+            "params": {
+              "kind": "jdk",
+              "constraint": "8"
+            },
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.old-source-6-zh",
+        "hint": "不再支持",
+        "pattern": "不再支持(?:源|目标)选项 (?:1\\.)?6",
+        "severity": "error",
+        "title": "%diag.oldSource.title%",
+        "message": "%diag.oldSource.message%",
+        "fixes": [
+          {
+            "id": "useJdk",
+            "title": "%fix.useOlderJdk%",
+            "kind": "setToolchain",
+            "params": {
+              "kind": "jdk",
+              "constraint": "<=11"
+            },
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.old-source-7-zh",
+        "hint": "不再支持",
+        "pattern": "不再支持(?:源|目标)选项 (?:1\\.)?7",
+        "severity": "error",
+        "title": "%diag.oldSource.title%",
+        "message": "%diag.oldSource.message%",
+        "fixes": [
+          {
+            "id": "useJdk",
+            "title": "%fix.useOlderJdk%",
+            "kind": "setToolchain",
+            "params": {
+              "kind": "jdk",
+              "constraint": "<=19"
+            },
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.lombok-jdk21",
+        "hint": "JCImport",
+        "pattern": "JCTree\\$JCImport does not have member field",
+        "severity": "error",
+        "title": "%diag.lombokJdk.title%",
+        "message": "%diag.lombokJdk21.message%",
+        "fixes": [
+          {
+            "id": "useJdk",
+            "title": "%fix.useOlderJdk%",
+            "kind": "setToolchain",
+            "params": {
+              "kind": "jdk",
+              "constraint": "<21"
+            },
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.lombok-jdk16",
+        "hint": "LombokProcessor",
+        "pattern": "IllegalAccessError: class lombok\\.javac\\.apt\\.LombokProcessor",
+        "severity": "error",
+        "title": "%diag.lombokJdk.title%",
+        "message": "%diag.lombokJdk16.message%",
+        "fixes": [
+          {
+            "id": "useJdk",
+            "title": "%fix.useOlderJdk%",
+            "kind": "setToolchain",
+            "params": {
+              "kind": "jdk",
+              "constraint": "<16"
+            },
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.heap",
+        "hint": "OutOfMemoryError",
+        "pattern": "OutOfMemoryError: (?:Java heap space|GC overhead limit exceeded)",
+        "severity": "error",
+        "title": "%diag.heap.title%",
+        "message": "%diag.heap.message%",
+        "stages": [
+          "run"
+        ],
+        "fixes": [
+          {
+            "id": "increaseHeap",
+            "title": "%fix.increaseHeap%",
+            "kind": "custom",
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.metaspace",
+        "hint": "OutOfMemoryError",
+        "pattern": "OutOfMemoryError: Metaspace",
+        "severity": "error",
+        "title": "%diag.metaspace.title%",
+        "message": "%diag.metaspace.message%",
+        "stages": [
+          "run"
+        ],
+        "fixes": [
+          {
+            "id": "increaseMetaspace",
+            "title": "%fix.increaseMetaspace%",
+            "kind": "custom",
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.main-not-found",
+        "hint": "main class",
+        "pattern": "Could not find or load main class ([\\w$.]+)",
+        "severity": "error",
+        "title": "%diag.mainNotFound.title%",
+        "message": "%diag.mainNotFound.message%",
+        "stages": [
+          "run"
+        ],
+        "fixes": [
+          {
+            "id": "reimport",
+            "title": "%fix.reimport%",
+            "kind": "reimport",
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.main-not-found-zh",
+        "hint": "主类",
+        "pattern": "找不到或无法加载主类 ([\\w$.]+)",
+        "severity": "error",
+        "title": "%diag.mainNotFound.title%",
+        "message": "%diag.mainNotFound.message%",
+        "stages": [
+          "run"
+        ],
+        "fixes": [
+          {
+            "id": "reimport",
+            "title": "%fix.reimport%",
+            "kind": "reimport",
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.bind-port",
+        "hint": "Failed to bind to",
+        "pattern": "Failed to bind to \\S*?:(\\d+)",
+        "severity": "error",
+        "title": "%diag.portInUse.title%",
+        "message": "%diag.portInUse.message%",
+        "stages": [
+          "run"
+        ],
+        "fixes": [
+          {
+            "id": "killPort",
+            "title": "%fix.killPort%",
+            "kind": "killPort",
+            "params": {
+              "port": "{1}"
+            },
+            "confirm": "%fix.killPort.confirm%",
+            "recommended": true
+          }
+        ]
+      },
+      {
+        "id": "java.address-in-use",
+        "hint": "Address already in use",
+        "pattern": "BindException: Address already in use",
+        "severity": "error",
+        "title": "%diag.addressInUse.title%",
+        "message": "%diag.addressInUse.message%",
+        "stages": [
+          "run"
+        ]
+      }
+    ]
+  }
+}
