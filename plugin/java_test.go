@@ -182,7 +182,12 @@ func TestBuildCommandArgFile(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	want := []string{"-XX:TieredStopAtLevel=1", "-Dfile.encoding=UTF-8", "-Xmx1g", "-Dname=a b", "@" + filepath.Join(dir, "argfiles", "cfg_1.argfile"), "com.acme.Main", "--port", "9000"}
+	enc := []string{"-Dfile.encoding=UTF-8"}
+	if runtime.GOOS == "windows" {
+		// Windows 控制台默认 GBK 等本地编码，输出接到管道时也要强制 UTF-8
+		enc = append(enc, "-Dsun.stdout.encoding=UTF-8", "-Dsun.stderr.encoding=UTF-8")
+	}
+	want := append(append([]string{"-XX:TieredStopAtLevel=1"}, enc...), "-Xmx1g", "-Dname=a b", "@"+filepath.Join(dir, "argfiles", "cfg_1.argfile"), "com.acme.Main", "--port", "9000")
 	if strings.Join(spec.Args, "|") != strings.Join(want, "|") {
 		t.Errorf("args %q", spec.Args)
 	}
